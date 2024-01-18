@@ -76,6 +76,8 @@ subject_and_topic=subject_and_topic[match.start():]
 #print(subject_and_topic)
 subject_and_topic=subject_and_topic.split(",")
 subject=subject_and_topic[0].strip()
+if("Datorgra" in subject):
+    subject="Datorgrafikas un attēlu apstrādes pamati(1),23/24-R"
 topic=subject_and_topic[1].strip()
 print(subject)
 print(topic)
@@ -108,10 +110,16 @@ if(done!=1):
     ws['B'+str(max_row+1)].value=topic
     ws['B'+str(max_row+2)].value=grade
         
-#print(max_row)
+
 wb.save('uni_grades.xlsx')
 wb.close()
-
+keyboard.press(['ctrl','w'])
+keyboard.release('ctrl')
+keyboard.release('w')
+time.sleep(1)
+email_choose = driver.find_element(By.XPATH, '//body/div[7]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]')
+email_choose.click()
+time.sleep(1)
 driver.quit()
 
 
