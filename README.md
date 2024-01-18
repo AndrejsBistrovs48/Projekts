@@ -1,4 +1,7 @@
 # **Projekta apraksts**
+
+Projektu izstrādāja: Andrejs Bistrovs ``` 231RDB020 ``` un Dāvids Bižāns ```231RDB005```
+
 ## **Projekta Uzdevums**
 Šis projekts ir izstrādāts, lai automatizētu vērtējumu saglabāšanu no ORTUS portāla, izmantojot Python skriptu. Projekta mērķis ir samazināt laiku un piepūli, kas nepieciešams, lai manuāli pārbaudītu un ierakstītu vērtējumus, automātiski saglabājot tos Excel formātā. Skripts izmanto Selenium tīmekļa pārlūka automatizācijas rīku, lai piekļūtu ORTUS portālam, izgūtu atzīmes un saglabātu tās Excel failā, kā arī apstrādātu PDF failus, lai iegūtu nepieciešamo informāciju.
 
