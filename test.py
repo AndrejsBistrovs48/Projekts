@@ -1,3 +1,4 @@
+import os
 import time
 import keyboard
 from selenium import webdriver
@@ -8,10 +9,9 @@ import PyPDF2
 import re
 import openpyxl
 from dotenv import load_dotenv
-import os
 
+load_dotenv()
 service = Service()
-#
 profile_path = r'C:\Users\drjuh\AppData\Local\Google\Chrome\User Data'  
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument(f'--user-data-dir={profile_path}')
@@ -21,11 +21,9 @@ reps=int(input())
 time.sleep(2)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 #login ortus
-
-load_dotenv()
-
-login = os.getenv('ORTUS_LOGIN')
-password = os.getenv('ORTUS_PASSWORD')
+login=os.getenv('ORTUS_LOGIN')
+password=os.getenv('ORTUS_PASSWORD')
+print(login)
 driver.get('https://id2.rtu.lv/')
 login_f=driver.find_element(By.NAME,"IDToken1")
 login_f.click()
@@ -38,6 +36,8 @@ login_f.click()
 #MAIL block
 driver.get('https://mail.google.com/mail')
 #parent=driver.getWindowHandle()
+
+
 
 
 time.sleep(1)
@@ -143,6 +143,5 @@ for i in range (reps):
     time.sleep(1)
     f.close()
 driver.quit()
-
 
 
