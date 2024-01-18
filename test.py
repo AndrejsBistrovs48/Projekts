@@ -7,8 +7,11 @@ import chromedriver_autoinstaller
 import PyPDF2
 import re
 import openpyxl
+from dotenv import load_dotenv
+import os
 
 service = Service()
+#
 profile_path = r'C:\Users\drjuh\AppData\Local\Google\Chrome\User Data'  
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument(f'--user-data-dir={profile_path}')
@@ -19,9 +22,10 @@ time.sleep(2)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 #login ortus
 
+load_dotenv()
 
-login=""
-password=""
+login = os.getenv('ORTUS_LOGIN')
+password = os.getenv('ORTUS_PASSWORD')
 driver.get('https://id2.rtu.lv/')
 login_f=driver.find_element(By.NAME,"IDToken1")
 login_f.click()
@@ -34,8 +38,6 @@ login_f.click()
 #MAIL block
 driver.get('https://mail.google.com/mail')
 #parent=driver.getWindowHandle()
-
-
 
 
 time.sleep(1)
@@ -68,6 +70,7 @@ for i in range (reps):
     time.sleep(1)
     keyboard.press_and_release('enter')
     time.sleep(1)
+    #
     f= open(r'C:\Users\drjuh\Downloads\crpdf.pdf', "rb")
     pdf_file=PyPDF2.PdfReader(f)
     number_of_pages=len(pdf_file.pages)
@@ -102,6 +105,7 @@ for i in range (reps):
         grade=grade.replace('/','')
     print(grade)
     from openpyxl import Workbook, load_workbook 
+    #
     wb=load_workbook(r'C:\Users\drjuh\Downloads\uni_grades.xlsx')
     ws=wb.active
     ws=wb['Sheet1']
