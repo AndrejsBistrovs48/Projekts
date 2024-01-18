@@ -1,0 +1,41 @@
+[33mcommit bddbfb62e54906161439c4503461054d9cafd76f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: AndrejsBistrovs48 <144618270+AndrejsBistrovs48@users.noreply.github.com>
+Date:   Thu Jan 18 16:43:26 2024 +0000
+
+    added loop to handle several emails, minor bugs fixed
+
+[33mcommit 6df910882775fc5e9091031f7fdc710580c3b2bc[m
+Author: AndrejsBistrovs48 <144618270+AndrejsBistrovs48@users.noreply.github.com>
+Date:   Thu Jan 18 15:25:57 2024 +0000
+
+    the mail is deleted and programme can be run again to write a new grade
+
+[33mcommit 9e4e9a67e86b63db8c0643ef81a0be77e67f15a2[m
+Author: AndrejsBistrovs48 <144618270+AndrejsBistrovs48@users.noreply.github.com>
+Date:   Thu Jan 18 13:37:06 2024 +0000
+
+    Now data from pdf file is written to excel fiile
+
+[33mcommit 3d71ab4d18c26f730bca549154c15985d6d82026[m
+Author: AndrejsBistrovs48 <144618270+AndrejsBistrovs48@users.noreply.github.com>
+Date:   Thu Jan 18 12:30:30 2024 +0000
+
+    Webpage is saved as pdf file and then grade. subject and name of assignment is gotten from pdf file.
+
+[33mcommit abbe93da2ad96d1512b9caf3f1b7b3affa50f0ed[m
+Author: AndrejsBistrovs48 <144618270+AndrejsBistrovs48@users.noreply.github.com>
+Date:   Thu Jan 18 02:13:54 2024 +0000
+
+    webpage is saved as pdfff
+
+[33mcommit f18b408322cbf605e5737014f7cd4c213ca82fc0[m
+Author: AndrejsBistrovs48 <144618270+AndrejsBistrovs48@users.noreply.github.com>
+Date:   Thu Jan 18 02:12:54 2024 +0000
+
+    ortus webpage is saved as pdf
+
+[33mcommit c55793325eb04285ef878ff198c8c00dce20df5e[m
+Author: AndrejsBistrovs48 <144618270+AndrejsBistrovs48@users.noreply.github.com>
+Date:   Thu Jan 18 02:29:13 2024 +0200
+
+    Initial commit

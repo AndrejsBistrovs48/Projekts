@@ -20,8 +20,8 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 #login ortus
 
 
-login="Andrejs.Bistrovs"
-password="Kolpo1234!"
+login=""
+password=""
 driver.get('https://id2.rtu.lv/')
 login_f=driver.find_element(By.NAME,"IDToken1")
 login_f.click()
@@ -133,4 +133,5 @@ for i in range (reps):
     time.sleep(2)
     f.close()
 driver.quit()
+
 
