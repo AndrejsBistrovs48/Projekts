@@ -70,7 +70,6 @@ for i in range (reps):
     time.sleep(1)
     keyboard.press_and_release('enter')
     time.sleep(1)
-    #
     f= open(r'C:\Users\drjuh\Downloads\crpdf.pdf', "rb")
     pdf_file=PyPDF2.PdfReader(f)
     number_of_pages=len(pdf_file.pages)
@@ -92,6 +91,14 @@ for i in range (reps):
     if("Datorgra" in subject):
         subject="Datorgrafikas un attēlu apstrādes pamati(1),23/24-R"
     topic=subject_and_topic[1].strip()
+    if 'papild' in topic:
+        topic='papild.uzdevums' 
+    elif 'eks' in topic:
+        topic='eksāmens'
+    elif 'labor' or 'praktisk' in topic:
+        topic="Lab. darbs"
+   
+    
     print(subject)
     print(topic)
 
@@ -105,7 +112,6 @@ for i in range (reps):
         grade=grade.replace('/','')
     print(grade)
     from openpyxl import Workbook, load_workbook 
-    #
     wb=load_workbook(r'C:\Users\drjuh\Downloads\uni_grades.xlsx')
     ws=wb.active
     ws=wb['Sheet1']
@@ -113,7 +119,7 @@ for i in range (reps):
     Excelnumbers=["A","B",'C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     done=0
     for i in range(1, max_row+1):
-        if ws['A'+str(i)].value == subject:
+        if str(ws['A'+str(i)].value)[0:18] == subject[0:18]:
             for j in Excelnumbers:
                 if ws[j+str(i)].value is None:
                     ws[j+str(i)].value = topic
@@ -131,11 +137,12 @@ for i in range (reps):
     keyboard.press(['ctrl','w'])
     keyboard.release('ctrl')
     keyboard.release('w')
-    time.sleep(2)
+    time.sleep(1)
     email_choose = driver.find_element(By.XPATH, '//body/div[7]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]')
     email_choose.click()
-    time.sleep(2)
+    time.sleep(1)
     f.close()
 driver.quit()
+
 
 
