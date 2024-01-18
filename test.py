@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 import chromedriver_autoinstaller
 import PyPDF2
 import re
-
+import openpyxl
 service = Service()
 profile_path = r'C:\Users\drjuh\AppData\Local\Google\Chrome\User Data'  
 chrome_options = webdriver.ChromeOptions()
@@ -59,7 +59,7 @@ keyboard.press_and_release('enter')
 keyboard.press_and_release('tab')
 keyboard.press_and_release('enter')
 time.sleep(2)
-pdf_file=PyPDF2.PdfReader(open(r'C:\Users\drjuh\Downloads\test5.pdf',"rb"))
+pdf_file=PyPDF2.PdfReader(open(r'C:\Users\drjuh\Downloads\crpdf.pdf',"rb"))
 number_of_pages=len(pdf_file.pages)
 text=""
 
@@ -88,7 +88,29 @@ else:
     grade=grade.strip("[]").replace("'", "")
     grade=grade.split('\\')[0].strip()
 print(grade)
-
+from openpyxl import Workbook, load_workbook 
+wb=load_workbook(r'C:\Users\drjuh\Downloads\uni_grades.xlsx')
+ws=wb.active
+ws=wb['Sheet1']
+max_row=ws.max_row
+Excelnumbers=["A","B",'C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+done=0
+for i in range(1, max_row+1):
+    if ws['A'+str(i)].value == subject:
+        for j in Excelnumbers:
+            if ws[j+str(i)].value is None:
+                ws[j+str(i)].value = topic
+                ws[j+str(i+1)].value = grade
+                done=1 
+                break
+if(done!=1): 
+    ws['A'+str(max_row+1)].value=subject
+    ws['B'+str(max_row+1)].value=topic
+    ws['B'+str(max_row+2)].value=grade
+        
+#print(max_row)
+wb.save('uni_grades.xlsx')
+wb.close()
 
 driver.quit()
 
